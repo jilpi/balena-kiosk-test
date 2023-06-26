@@ -2,6 +2,6 @@ version: "2"
 
 services:
   balena-hello-world:
-    build: .
+    build: ./kiosk-app
     ports:
       - "80:80"
