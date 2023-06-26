@@ -1,0 +1,3 @@
+[submodule "react-ekami-kiosk-app"]
+	path = react-ekami-kiosk-app
+	url = https://github.com/ekami-ch/react-ekami-kiosk-app
