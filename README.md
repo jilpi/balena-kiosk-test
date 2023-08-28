@@ -1,10 +1,44 @@
-# A Simple Server with NodeJS Express
+---
+title: "EKAMI Kiosk Balena Project TEST - README.md"
+output:
+  html_document:
+    toc: true
+    number_sections: true
+---
 
-[![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balena-io-examples/balena-node-hello-world)
+# EKAMI Kiosk Balena project - TEST
 
-This is a simple skeleton NodeJS server project that works on any of the [devices supported][devices-supported] by [balena][balena-link].
+[![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/jilpi/balena-kiosk-test)
 
-This project serves up a welcome page on port `:80` of your balena device.
+# Introduction
+
+This project deploys the necessary Balena blocks and services for a standalone EKAMI Kiosk.
+
+Devices supported:
+
+- Raspberry Pi 4
+- Intel NUC (not tested yet)
+
+The EKAMI Kiosk does not provide any network accessible services to other computers on the network.
+
+The only way to connect to it are locally (tty on the main display) or through the Balena VPN.
+
+Internally, it is made of the following docker services:
+
+ - The Kiosk application, serving the pages that will appear to the user
+ - A Chrome block, provided by Balena, launching Chrome on a bare X Server in full screen and Kiosk mode, configured with security as first priority
+ - A CUPS instance with SANIO SK1-311 printer driver installed and configured (not implemented yet)
+
+# Components
+
+## Kiosk App
+
+### Application
+
+The application itself is a one-page React application, consisting of a set of static HTML, JS, CSS and other files. It is cloned from https://github.com/ekami-ch/react-ekami-kiosk-app as a GIT submodule, in the folder `/react-ekami-kiosk-app/`.
+
+### HTTP Server
+
 
 To get this project up and running, you will need to [sign-up][signup-page] for a balena account. Have a look at our [Getting Started tutorial][gettingStarted-link] to help you kickstart your journey in creating a fleet of devices. Once you are set up with balena, you will need to clone or download this repository. 
 
